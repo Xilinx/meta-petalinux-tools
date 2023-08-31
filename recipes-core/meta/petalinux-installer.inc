@@ -35,6 +35,9 @@ create_sdk_files:append() {
 	# Copy PetaLinux utils and templates
 	rsync -r --exclude="README.*" --exclude="livetool_setup.sh" \
 			--cvs-exclude ${WORKDIR}/petalinux/ ${SDK_OUTPUT}/${SDKPATH}/.
+	# Inject current PetaLinux version
+	sed -i 's|export[[:space:]]PETALINUX_VER=.*|export PETALINUX_VER=${PETALINUX_TOOL_VER}|g' ${SDK_OUTPUT}/${SDKPATH}/settings.sh
+	sed -i 's|setenv[[:space:]]PETALINUX_VER[[:space:]].*|setenv PETALINUX_VER ${PETALINUX_TOOL_VER}|g' ${SDK_OUTPUT}/${SDKPATH}/settings.csh
 
 	# Create pre_installer setup tarball
 	install -d ${B}/pre_installer
