@@ -32,8 +32,13 @@ do_populate_sdk[vardeps] += " \
 
 do_populate_sdk[cleandirs] += "${B}/pre_installer"
 create_sdk_files:append() {
+	# Third party software size larger than github file(150MB)
+	# using the tar.xz file
+	tar -xJf ${WORKDIR}/petalinux/licenses/Third_Party_Software_EULA.tar.xz -C ${WORKDIR}/petalinux/licenses/
+
 	# Copy PetaLinux utils and templates
 	rsync -r --exclude="README.*" --exclude="livetool_setup.sh" \
+			--exclude="Third_Party_Software_EULA.tar.xz" \
 			--cvs-exclude ${WORKDIR}/petalinux/ ${SDK_OUTPUT}/${SDKPATH}/.
 	# Inject current PetaLinux version
 	sed -i 's|export[[:space:]]PETALINUX_VER=.*|export PETALINUX_VER=${PETALINUX_TOOL_VER}|g' ${SDK_OUTPUT}/${SDKPATH}/settings.sh
