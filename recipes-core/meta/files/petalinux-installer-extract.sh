@@ -397,8 +397,32 @@ if [ -e "$post_relocate" ]; then
 	rm -f $post_relocate
 fi
 
-# Rename env script file
-mv $target_sdk_dir/environment-setup-* $target_sdk_dir/.$(basename $target_sdk_dir/environment-setup-*)
+# Rename env script file and creating cshell env files
+env_script=$(basename $(ls $target_sdk_dir/environment-setup-* | head -n1))
+env_setup_dir=$target_sdk_dir/sysroots/x86_64-petalinux-linux/environment-setup.d
+cp -rf $target_sdk_dir/$env_script $target_sdk_dir/.${env_script}_csh
+mv $target_sdk_dir/$env_script $target_sdk_dir/.$(basename $target_sdk_dir/environment-setup-* | head -n1)
+# Loop through env setup directory for the bash files
+# and create csh files for the bash files.
+for sh_file in $env_setup_dir/*.sh; do
+    csh_file_name=$(basename "$sh_file" .sh).csh
+    cp -rf $sh_file $env_setup_dir/$csh_file_name
+done
+
+# Changing the syntax to cshell
+for file in $target_sdk_dir/.${env_script}_csh $env_setup_dir/*.csh; do
+while read -r line; do
+    # Replace 'export' with 'setenv'
+    sed -e "s:export:setenv:g" -i $file
+    # Replace '=' with ' ' and this replacement not required in HOST_PKG_PATH line
+    # as we are setting value to HOST_PAG_PATH and = required.
+    sed -e "/HOST_PKG_PATH=/! s/=/ /g" -i $file
+done <$file
+done
+
+# Replacing sh to csh
+sed -e "s:*.sh:*.csh:g" -i $target_sdk_dir/.${env_script}_csh
+
 info_msg "PetaLinux SDK has been successfully set up and is ready to be used."
 exit 0
 
