@@ -420,8 +420,11 @@ while read -r line; do
 done <$file
 done
 
-# Replacing sh to csh
-sed -e "s:*.sh:*.csh:g" -i $target_sdk_dir/.${env_script}_csh
+
+#converting the bash script to cshell script
+sed -e 's/HOST_PKG_PATH=$(command -p /set HOST_PKG_PATH=\`/g' -e 's/pkg-config 2>\/dev\/null)/pkg-config\`/g' \
+	-e 's/:-/}:/g' -e 's/pkgconfig}/pkgconfig/g' -e 's:*.sh:*.csh:g' -e 's:for envfile in :foreach envfile (:g' -e 's:; do:):g' -e 's:done:end:g' -e 's/\bfi\b/endif/g' \
+	-e 's:if \[:if \(:g' -e 's:];:):g' -e 's:\.\ \$envfile:source\ \$envfile:g' -i $target_sdk_dir/.${env_script}_csh
 
 info_msg "PetaLinux SDK has been successfully set up and is ready to be used."
 exit 0
