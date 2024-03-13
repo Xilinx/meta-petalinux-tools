@@ -6,5 +6,5 @@ PBRANCHARG = "${@['nobranch=1', 'branch=${PBRANCH}'][d.getVar('PBRANCH', True) !
 PLNX_BRANCH[2024.1] = "main"
 PBRANCH ??= "${@d.getVarFlag('PLNX_BRANCH', d.getVar('PETALINUX_TOOL_VER')) or 'main'}"
 
-PLNX_SRCREV[2024.1] = "0e42acab0d9567401e7b30d39fc4aba08e2bba79"
+PLNX_SRCREV[2024.1] = "1bd114cb04ae016f37aedf7ee026b17f49e25955"
 SRCREV_petalinux ??= "${@d.getVarFlag('PLNX_SRCREV', d.getVar('PETALINUX_TOOL_VER')) or '${AUTOREV}'}"
