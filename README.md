@@ -2,11 +2,20 @@
 
 This layer is to Build or Generate the PetaLinux tool Installer.
 
-> **Note:** Additional information on Xilinx architectures can be found at:
-	https://www.xilinx.com/products/silicon-devices.html
+## Build Instructions
+Setup the Yocto environment by following README.md from https://github.com/xilinx/yocto-manifests
 
 ```
+bitbake-layers remove-layer meta-xilinx-tools
+
+bitbake-layers add-layer ../sources/meta-xilinx/meta-xilinx-standalone-experimental
+
+bitbake-layers add-layer <meta-petalinux-tools path>
+
 bitbake petalinux-installer
+
+ls tmp/deploy/sdk/
+petalinux-v2024.1-final-installer.run
 ```
 ---
 ## Maintainers, Patches/Submissions, Community
@@ -63,11 +72,6 @@ This layer depends on:
         https://github.com/Xilinx/meta-xilinx (development and amd xilinx release)
 	layers: meta-xilinx-core, meta-xilinx-microblaze, meta-xilinx-bsp,
             meta-xilinx-standalone, meta-xilinx-vendor.
-	branch: langdale or amd xilinx release version (e.g. rel-v2024.1)
-
-	URI:
-        https://git.yoctoproject.org/meta-xilinx-tools (official version)
-        https://github.com/Xilinx/meta-xilinx-tools (development and amd xilinx release)
 	branch: langdale or amd xilinx release version (e.g. rel-v2024.1)
 
 	URI:
