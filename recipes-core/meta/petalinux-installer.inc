@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/petalinux/licenses/LICENSE.MIT;md5=84bd2de
 PETALINUX_TOOL_VER ??= "${@bb.parse.vars_from_file(d.getVar('FILE', False),d)[1] or '${XILINX_VER_MAIN}'}"
 PETALINUX_TOOL_VER[doc] = "PetaLinux Tool version"
 
-PETALINUX_MIRROR_URI ??= "http://petalinux.xilinx.com/sswreleases/${ESDK_VER}"
+PETALINUX_MIRROR_URI ??= "https://petalinux.xilinx.com/sswreleases/${ESDK_VER}"
 
 PREINSTALLER_OUTFILE ??= "pre_installer-${DISTRO_VERSION}.tar.xz"
 PREINSTALLER_OUTFILE[doc] ??= "Pre installer file to check the host dependencies before installing PetaLinux tool"

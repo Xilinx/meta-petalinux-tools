@@ -1,7 +1,7 @@
 # Yocto esdk URI Settings
 FILESEXTRAPATHS:prepend := "${EXTERNAL_ESDK_PATH}:"
 
-ESDK_VER ?= "rel-${@d.getVar('PETALINUX_TOOL_VER').split('.')[0]}"
+ESDK_VER ?= "rel-v${@d.getVar('PETALINUX_TOOL_VER').split('.')[0]}"
 ESDK_VER[doc] = "ESDK version, ex: rel-v2023"
 
 EXTERNAL_ESDK_PATH ??= ""
