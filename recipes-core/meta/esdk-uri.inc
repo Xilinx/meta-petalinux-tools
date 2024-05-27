@@ -18,8 +18,8 @@ ESDK_FILENAMES[doc] ??= "ESDK file name that has to copied into to PetaLinux too
 
 SRC_URI += "${@" ".join(["${ESDK_BASE}${ESDK_PATH}%s;name=%s" % (f, f) for f in (d.getVar('ESDK_FILENAMES') or "").split()])}"
 
-SRC_URI[aarch64.sha256sum] = "fc4377916e2c1078a75f35c3decb7ed0671ae553a637b4a09fb8544427f81ca0"
-SRC_URI[aarch64_dt.sha256sum] = "8c88d7a673eade5784ade9293fcea9d6c400a50afeaf7ec7ba7a1a5933d6ba16"
-SRC_URI[arm.sha256sum] = "883763ca1cc4459468a8a8c0ca5c7bb82b6fd5bb3ad98b14d596664e0847318c"
-SRC_URI[microblaze.sha256sum] = "361ad510c79ecc458faa861a45384fea936132ae7f528fd54629e0deb5d21071"
+SRC_URI[aarch64.sha256sum] = "52652d154ddc73d3f72fbc3b7e703dd288d990a9085c36399a106df849a5389f"
+SRC_URI[aarch64_dt.sha256sum] = "1b0c32bd8a8d211b3a00c58318f5ad0aec670445a641911ef5efad38cee55433"
+SRC_URI[arm.sha256sum] = "735fa618a53dbe366cbc92a3279917c4d6424d4b01de737c06f028e7ecf2854c"
+SRC_URI[microblaze.sha256sum] = "e87971d50b5feac686d8f1106fe771a0487becaf829761f3dbf3d391c6f7f48b"
 
