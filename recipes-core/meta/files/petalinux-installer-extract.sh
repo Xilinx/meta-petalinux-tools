@@ -75,7 +75,6 @@ Options:
   -p|--platform <ARCH_NAME>	Specify the architecture name.
   				Supported Archs: {$PLATFORMS}
 				aarch64 	: sources for zynqMP and versal
-				aarch64_dt	: system device-tree(SDT) sources for zynqMP and versal
 				arm     	: sources for zynq
 				microblaze      : sources for microblaze
 EXAMPLES:
@@ -90,8 +89,6 @@ To get only desired sources:
 	This will install the sources for zynq,zynqMP and versal.
  \$ $INSTALLER_NAME --dir <INSTALL_DIR> --platform \"microblaze\"
 	This will install the sources for microblaze
- \$ $INSTALLER_NAME --dir <INSTALL_DIR> --platform \"aarch64_dt\"
-	This will install the system device-tree(SDT) sources for zynqMP and versal
 "
 }
 
