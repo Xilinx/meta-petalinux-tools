@@ -6,10 +6,6 @@ This layer is to Build or Generate the PetaLinux tool Installer.
 Setup the Yocto environment by following README.md from https://github.com/xilinx/yocto-manifests
 
 ```
-bitbake-layers remove-layer meta-xilinx-tools
-
-bitbake-layers add-layer ../sources/meta-xilinx/meta-xilinx-standalone-experimental
-
 bitbake-layers add-layer <meta-petalinux-tools path>
 
 bitbake petalinux-installer
@@ -59,20 +55,20 @@ This layer depends on:
 
 	URI: https://git.yoctoproject.org/poky
 	layers: meta, meta-poky
-	branch: langdale
+	branch: scarthgap
 
 	URI: https://git.openembedded.org/meta-openembedded
 	layers: meta-oe, meta-perl, meta-python, meta-filesystems, meta-gnome,
             meta-multimedia, meta-networking, meta-webserver, meta-xfce,
             meta-initramfs.
-	branch: langdale
+	branch: scarthgap
 
 	URI:
         https://git.yoctoproject.org/meta-xilinx (official version)
         https://github.com/Xilinx/meta-xilinx (development and amd xilinx release)
 	layers: meta-xilinx-core, meta-xilinx-microblaze, meta-xilinx-bsp,
             meta-xilinx-standalone, meta-xilinx-vendor.
-	branch: langdale or amd xilinx release version (e.g. rel-v2024.2)
+	branch: scarthgap or amd xilinx release version (e.g. rel-v2024.2)
 
 	URI:
         https://github.com/Xilinx/meta-petalinux-tools (development and amd xilinx release)
