@@ -1,7 +1,7 @@
 # Yocto esdk URI Settings
 FILESEXTRAPATHS:prepend := "${EXTERNAL_ESDK_PATH}:"
 
-ESDK_VER ?= "rel-${PETALINUX_TOOL_VER}"
+ESDK_VER ?= "rel-v${PETALINUX_TOOL_VER}"
 ESDK_VER[doc] = "ESDK version, ex: rel-v2023"
 
 EXTERNAL_ESDK_PATH ??= ""
@@ -18,7 +18,7 @@ ESDK_FILENAMES[doc] ??= "ESDK file name that has to copied into to PetaLinux too
 
 SRC_URI += "${@" ".join(["${ESDK_BASE}${ESDK_PATH}%s;name=%s" % (f, f) for f in (d.getVar('ESDK_FILENAMES') or "").split()])}"
 
-SRC_URI[aarch64.sha256sum] = "52652d154ddc73d3f72fbc3b7e703dd288d990a9085c36399a106df849a5389f"
-SRC_URI[arm.sha256sum] = "735fa618a53dbe366cbc92a3279917c4d6424d4b01de737c06f028e7ecf2854c"
-SRC_URI[microblaze.sha256sum] = "e87971d50b5feac686d8f1106fe771a0487becaf829761f3dbf3d391c6f7f48b"
+SRC_URI[aarch64.sha256sum] = "acd7a0f018c9dcc73b41b34a82c0553ac0e000c958631fb36f26d497824ff35d"
+SRC_URI[arm.sha256sum] = "f20b3d97af7961e8a255990489779ec7e341165af8ded0845145cd1cbfa5b91f"
+SRC_URI[microblaze.sha256sum] = "3d6043f17dd2ead2460de48c441dd8acb38e46e1c273ee5003528c64605c5a6d"
 
