@@ -3,10 +3,10 @@ VITIS_VERSION ??= "${PETALINUX_TOOL_VER}"
 VITIS_VERSION[doc] = "VITIS installer version"
 
 # Keeping duplicates as PetaLinux tool has to be build without meta-xilinx-tools
-XSCT_URL[2025.1] = "${PETALINUX_MIRROR_URI}/xsct-trim/xsct-2025-1_0512.tar.xz"
+XSCT_URL[2025.1] = "${PETALINUX_MIRROR_URI}/xsct-trim/xsct-2025-1_0517.tar.xz"
 XSCT_DEFAULT_URL ?= "${@d.getVarFlag('XSCT_URL', d.getVar('PETALINUX_TOOL_VER'))}"
 
-XSCT_CHECKSUM[2025.1] = "a22889d104e97b22a5eb9602ec3848a1a6fd7b27c8176e5f335f23068358e118"
+XSCT_CHECKSUM[2025.1] = "9d303d5124e4774d545e6448e1314aa8921d4e38951db82ce38957c645cf2384"
 XSCT_CHECKSUM ??= "${@d.getVarFlag('XSCT_CHECKSUM', d.getVar('PETALINUX_TOOL_VER'))}"
 
 TRIM_XSCT_PATH ?= "${@'file://%s' % d.getVar('EXTERNAL_XSCT_TARBALL') if (d.getVar('EXTERNAL_XSCT_TARBALL') or '') != '' else '${XSCT_DEFAULT_URL}'}"
