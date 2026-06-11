@@ -76,19 +76,16 @@ Options:
   				Supported Archs: {$PLATFORMS}
 				aarch64 	: sources for zynqMP and versal
 				arm     	: sources for zynq
-				microblaze      : sources for microblaze
 EXAMPLES:
 Install the tool in specified location:
  \$ $INSTALLER_NAME -d/--dir <INSTALL_DIR>
 To get only desired sources:
  \$ $INSTALLER_NAME --dir <INSTALL_DIR>
-	This will install the sources for all(zynq,zynqMP,versal,microblaze).
+	This will install the sources for all(zynq,zynqMP,versal).
  \$ $INSTALLER_NAME --dir <INSTALL_DIR> --platform \"arm\"
 	This will install the sources for zynq only.
  \$ $INSTALLER_NAME --dir <INSTALL_DIR> --platform \"arm aarch64\"
 	This will install the sources for zynq,zynqMP and versal.
- \$ $INSTALLER_NAME --dir <INSTALL_DIR> --platform \"microblaze\"
-	This will install the sources for microblaze
 "
 }
 

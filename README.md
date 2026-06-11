@@ -66,7 +66,7 @@ This layer depends on:
 	URI:
         https://git.yoctoproject.org/meta-xilinx (official version)
         https://github.com/Xilinx/meta-xilinx (development and amd xilinx release)
-	layers: meta-xilinx-core, meta-xilinx-microblaze, meta-xilinx-bsp,
+	layers: meta-xilinx-core, meta-xilinx-bsp,
             meta-xilinx-standalone, meta-xilinx-vendor.
 	branch: scarthgap or amd xilinx release version (e.g. rel-v2024.2)
 
